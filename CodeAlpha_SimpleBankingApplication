@@ -1,4 +1,20 @@
 
+# Simple Banking Application
+
+This is a simple banking application written in Java. It covers fundamental concepts like the Scanner class for input, strings, loops, methods, and conditional statements. This project involves basic banking operations such as deposits, withdrawals, checking balances, and exiting the program.
+
+## Features
+
+- **Deposit**: Add money to your account.
+- **Withdraw**: Take money out of your account.
+- **Check Balance**: View the current balance of your account.
+- **Exit**: Exit the application.
+
+
+**Follow the on-screen instructions** to perform various banking operations.
+
+## Example
+
 
 import java.util.Scanner;
 
