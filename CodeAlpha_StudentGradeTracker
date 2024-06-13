@@ -1,0 +1,77 @@
+
+#Student GradeTracker
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class Main{
+    private final ArrayList<Integer> grades;
+
+    public Main() {
+        grades = new ArrayList<>();
+    }
+
+    public void addGrade(int grade) {
+        grades.add(grade);
+    }
+
+    public double computeAverage() {
+        if (grades.isEmpty()) {
+            return 0;
+        }
+        int sum = 0;
+        for (int grade : grades) {
+            sum += grade;
+        }
+        return (double) sum / grades.size();
+    }
+
+    public int findHighest() {
+        if (grades.isEmpty()) {
+            return 0;
+        }
+        int highest = grades.getFirst();
+        for (int grade : grades) {
+            if (grade > highest) {
+                highest = grade;
+            }
+        }
+        return highest;
+    }
+
+    public int findLowest() {
+        if (grades.isEmpty()) {
+            return 0;
+        }
+        int lowest = grades.getFirst();
+        for (int grade : grades) {
+            if (grade < lowest) {
+                lowest = grade;
+            }
+        }
+        return lowest;
+    }
+
+    public static void main(String[] args) {
+        Main studentGrades = new Main();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter student grades (type 'done' to finish):");
+        while (true) {
+            String input = scanner.nextLine();
+            if (input.equalsIgnoreCase("done")) {
+                break;
+            }
+            try {
+                int grade = Integer.parseInt(input);
+                studentGrades.addGrade(grade);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input. Please enter a valid grade or 'done' to finish.");
+            }
+        }
+
+        System.out.println("Average grade: " + studentGrades.computeAverage());
+        System.out.println("Highest grade: " + studentGrades.findHighest());
+        System.out.println("Lowest grade: " + studentGrades.findLowest());
+    }
+}
